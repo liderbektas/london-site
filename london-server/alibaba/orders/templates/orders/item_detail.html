@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="item-detail">
+    <h2>{{ item.name }}</h2>
+    <p>{{ item.description }}</p>
+
+    <div class="size-options">
+        {% for size in sizes %}
+            <button
+                class="size-button {% if forloop.first %}selected{% endif %}"
+                data-price="{{ size.price }}"
+                data-id="{{ size.size.id }}"
+                {% if forloop.first %}data-selected="true"{% endif %}>
+                {{ size.size.size_name }}
+            </button>
+        {% endfor %}
+    </div>
+
+    <p>Price: £<span id="price">{{ sizes.0.price }}</span></p>
+
+    {% if salad_toppings %}
+        <div class="toppings-section">
+            <h3>Salad Toppings</h3>
+            <div class="topping-options">
+                {% for topping in salad_toppings %}
+                    <button
+                        class="topping-button"
+                        data-id="{{ topping.id }}">
+                        {{ topping.name }}
+                    </button>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if sauce_toppings %}
+        <div class="toppings-section">
+            <h3>Sauce Toppings</h3>
+            <div class="topping-options">
+                {% for topping in sauce_toppings %}
+                    <button
+                        class="topping-button"
+                        data-id="{{ topping.id }}">
+                        {{ topping.name }}
+                    </button>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <!-- No sauce toppings available message is not displayed -->
+    {% endif %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle size button selection
+    const sizeButtons = document.querySelectorAll('.size-button');
+
+    sizeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove 'selected' class from all buttons
+            sizeButtons.forEach(btn => btn.classList.remove('selected'));
+
+            // Add 'selected' class to the clicked button
+            this.classList.add('selected');
+
+            // Update price based on the clicked button
+            const price = this.getAttribute('data-price');
+            document.getElementById('price').textContent = price;
+        });
+    });
+
+    // Ensure the first button is selected by default
+    const defaultButton = document.querySelector('.size-button[data-selected="true"]');
+    if (defaultButton) {
+        defaultButton.click();  // Simulate a click to set the initial state
+    }
+
+    // Handle topping button selection
+    const toppingButtons = document.querySelectorAll('.topping-button');
+
+    toppingButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Toggle 'selected' class on clicked button
+            this.classList.toggle('selected');
+        });
+    });
+});
+</script>
+
+<style>
+.size-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.size-button.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.topping-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.topping-button.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.topping-button:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.toppings-section h3 {
+    margin-top: 20px;
+}
+
+.topping-options {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.topping-options button {
+    margin: 5px;
+}
+</style>
+
+{% endblock %}

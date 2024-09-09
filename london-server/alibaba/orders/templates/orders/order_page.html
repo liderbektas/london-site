@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="order-container">
+    <div class="categories">
+        <ul>
+            {% for category in categories %}
+                <li><a href="?category={{ category.id }}"
+                class="{% if category.id == selected_category %}active{% endif %}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="items">
+        {% for item in items %}
+            <div class="item">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description }}</p>
+                <a href="{% url 'item_detail' item.id %}">View Details</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
