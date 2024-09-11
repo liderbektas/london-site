@@ -1,6 +1,8 @@
 from django.urls import path
 #from .views import ItemDetailAPIView
 from .views import item_detail_api, categories_page_api, categories
+from django.conf import settings
+from django.conf.urls.static import static
 
 # from .views import order_page, item_detail
 
@@ -14,3 +16,6 @@ urlpatterns = [
     path("api/categories/", categories, name="categories")
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

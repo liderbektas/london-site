@@ -20,6 +20,7 @@ def categories(request):
                     'id': item.id,
                     'name': item.name,
                     'description': item.description,
+                    'image': item.image.url if item.image else None,
                     'price': ItemSizes.objects.filter(item=item).first().price if ItemSizes.objects.filter(item=item).exists() else None
                 }
                 for item in Items.objects.filter(category=category)
