@@ -8,13 +8,17 @@ class Cart:
 
         self.cart = cart
 
-    def add(self, item):
+    def add(self, item, size, price, salad_toppings=None, sauce_toppings=None):
         item_id = str(item.id)
 
         if item_id not in self.cart:
             self.cart[item_id] = {
                 "name": item.name,
+                "size": size,
+                "price": str(price),
                 "description": item.description,
-                "image_url": item.image.url
+                "image_url": item.image.url,
+                "salad_toppings": salad_toppings or [],
+                "sauce_toppings": sauce_toppings or [],
             }
         self.session.modified = True
