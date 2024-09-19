@@ -1,8 +1,33 @@
-# views_api.py
-
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Items, ItemSizes, Categories
+from datetime import datetime, time
+import pytz
+
+
+@api_view(['POST'])
+def time_post_checker(request):
+    uk_tz = pytz.timezone("Europe/London")
+    now = datetime.now(uk_tz).time()
+
+    order_start = time(12, 00)
+    order_finish = time(23, 00)
+
+    if not (order_start < now < order_finish):
+        return Response({"error": "Orders are not accepted at this time."}, status=status.HTTP_403_FORBIDDEN)
+
+    acceptable_postcodes = [
+        "NW1", "NW2", "NW3", "NW5", "NW6", "NW8", "NW10", "NW11",
+        "W2", "W9", "W10", "W11", "W12"
+    ]
+
+    user_post_code = request.data.get("postcode").upper()
+
+    if not any(user_post_code.startswith(post_code) for post_code in acceptable_postcodes):
+        return Response({"error": "We do not deliver to this area."}, status=status.HTTP_403_FORBIDDEN)
+
+    return Response({'success': 'Proceed to order'}, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
