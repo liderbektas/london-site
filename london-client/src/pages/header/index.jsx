@@ -36,7 +36,7 @@ const Header = () => {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? 'w-full h-full bg-white text-black rounded-md flex items-center justify-center'
+                  ? 'flex items-center justify-center transition duration-200 border-b'
                   : ''
               }
               to={`/order/${category.name}`}
