@@ -1,4 +1,4 @@
-const Info = ({ item, extras, selectedSize }) => {
+const Info = ({ item, extras, selectedSize, handleAdd }) => {
   const selectedSizePrice =
     extras.sizes.find((item) => item.size_id === selectedSize)?.price || 0;
 
@@ -13,7 +13,10 @@ const Info = ({ item, extras, selectedSize }) => {
         </span>
       </div>
 
-      <button className='justify-center w-full mt-8 text-xl text-black bg-white rounded hover:text-white hover:bg-transparent border-[0.5px] transition duration-200 px-4 py-1'>
+      <button
+        onClick={handleAdd}
+        className='justify-center w-full mt-8 text-xl text-black bg-white rounded hover:text-white hover:bg-transparent border-[0.5px] transition duration-200 px-4 py-1'
+      >
         Add to Cart
       </button>
     </>

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
-const Salad = ({ saladToppings }) => {
-  const [selectedSaladToppings, setSelectedSaladToppings] = useState([]);
-
+const Salad = ({
+  saladToppings,
+  selectedSaladToppings,
+  setSelectedSaladToppings,
+}) => {
   const handleSaladToppingChange = (toppingId) => {
     setSelectedSaladToppings((prev) =>
       prev.includes(toppingId)
@@ -10,8 +12,6 @@ const Salad = ({ saladToppings }) => {
         : [...prev, toppingId]
     );
   };
-
-  console.log(saladToppings)
 
   return (
     <>

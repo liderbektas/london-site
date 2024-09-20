@@ -2,7 +2,16 @@ import Info from './content/info';
 import Salad from './content/salad';
 import Sauce from './content/sauce';
 
-const Content = ({ selectedSize, item, extras }) => {
+const Content = ({
+  selectedSize,
+  item,
+  extras,
+  selectedSaladToppings,
+  setSelectedSaladToppings,
+  selectedSauceToppings,
+  setSelectedSauceToppings,
+  handleAdd
+}) => {
   if (!extras) {
     return null;
   }
@@ -15,14 +24,22 @@ const Content = ({ selectedSize, item, extras }) => {
       )}
 
       {extras.salad_toppings?.length > 0 && (
-        <Salad saladToppings={extras.salad_toppings} />
+        <Salad
+          saladToppings={extras.salad_toppings}
+          selectedSaladToppings={selectedSaladToppings}
+          setSelectedSaladToppings={setSelectedSaladToppings}
+        />
       )}
 
       {extras.sauce_toppings?.length > 0 && (
-        <Sauce sauceToppings={extras.sauce_toppings} />
+        <Sauce
+          sauceToppings={extras.sauce_toppings}
+          selectedSauceToppings={selectedSauceToppings}
+          setSelectedSauceToppings={setSelectedSauceToppings}
+        />
       )}
 
-      <Info item={item} selectedSize={selectedSize} extras={extras} />
+      <Info item={item} selectedSize={selectedSize} extras={extras} handleAdd={handleAdd} />
     </div>
   );
 };

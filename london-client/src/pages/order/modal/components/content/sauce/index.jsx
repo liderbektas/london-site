@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
-const Sauce = ({ sauceToppings }) => {
-  const [selectedSauceToppings, setSelectedSauceToppings] = useState([]);
-
+const Sauce = ({
+  sauceToppings,
+  selectedSauceToppings,
+  setSelectedSauceToppings,
+}) => {
   const handleSauceToppingChange = (sauceId) => {
     setSelectedSauceToppings((prev) =>
       prev.includes(sauceId)
