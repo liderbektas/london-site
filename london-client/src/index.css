@@ -1,16 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
-    @apply antialiased;
-    font-family: "Jost", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
+*{@apply antialiased;
+font-family: 'Jost', sans-serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
 }
-
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }

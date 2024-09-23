@@ -10,10 +10,17 @@ const cart = createSlice({
       state.items = action.payload;
     },
     addToCart: (state, action) => {
-      state.items.push(action.payload);
+      const existProduct = state.items.find(
+        (item) => item.item.item_id === action.payload.item.item_id
+      );
+      if (existProduct != null) {
+        existProduct.item.quantity += 1;
+      } else {
+        state.items.push(action.payload);
+      }
     },
   },
 });
 
-export const { addToCart , setCart } = cart.actions;
+export const { addToCart, setCart } = cart.actions;
 export default cart.reducer;
