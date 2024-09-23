@@ -26,6 +26,7 @@ const Cart = () => {
           </div>
         )}
       </div>
+      asdada
     </div>
   );
 };
