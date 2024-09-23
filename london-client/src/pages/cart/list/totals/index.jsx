@@ -5,7 +5,7 @@ const Total = ({ subTotal }) => {
     <>
       <h2 className='text-4xl'>Cart totals</h2>
 
-      <table className='w-full mt-8'>
+      <table className='w-full'>
         <tbody>
           <tr className='border-b-[0.5px]'>
             <th className='py-4 text-xl text-left'>Subtotal</th>

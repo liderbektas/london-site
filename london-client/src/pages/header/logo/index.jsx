@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import Logo from '../../../assets/img/D.png';
+import Logo from "../../../assets/img/Logo1.png"
 
 const Logos = () => {
   return (
-    <Link to='/' className='text-2xl font-semibold'>
-      Ali Baba
+    <Link to='/'>
+      <img src={Logo} alt="" className='h-16' />
     </Link>
   );
 };
