@@ -26,14 +26,12 @@ const Modal = ({ item, closeModal }) => {
 
   const handleAdd = useCallback(async () => {
     try {
-      dispatch(addToCartAPI(item.id, selectedSize, selectedSaladToppings, selectedSauceToppings)
-      );
-      toast.success('Ürün sepete eklendi',  { duration: 3000, position: 'top-right'});
+      dispatch(addToCartAPI(item.id, selectedSize, selectedSaladToppings, selectedSauceToppings));
+      toast.success('Ürün sepete eklendi', { duration: 3000,position: 'top-right' });
       closeModal();
-    } catch (error) {
-      toast.error('Sepete ürün eklenemedi', { duration: 3000,position: 'top-right'});
-    }
-  });
+    } catch {toast.error('Sepete ürün eklenemedi', { duration: 3000, position: 'top-right',})}
+  }, [dispatch, item.id, selectedSize, selectedSaladToppings, selectedSauceToppings, closeModal]);
+
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>

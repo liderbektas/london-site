@@ -15,7 +15,7 @@ const addToCartAPI =
       );
       dispatch(addToCart(data));
     } catch (error) {
-      console.log('Sepete eklerken hata oluştu' + error.message);
+      console.log('Sepete eklerken hata oluştu: ' + error.message);
     }
   };
 

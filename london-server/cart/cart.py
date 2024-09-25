@@ -1,5 +1,5 @@
 class Cart:
-    def init(self, request):
+    def __init__(self, request):
         self.session = request.session
         cart = self.session.get("cart")
 
