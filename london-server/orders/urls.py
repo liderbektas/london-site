@@ -1,10 +1,8 @@
 from django.urls import path
-# from .views import ItemDetailAPIView
 from .views import item_detail_api, categories_page_api, categories, time_post_checker
 from django.conf import settings
 from django.conf.urls.static import static
 
-# from .views import order_page, item_detail
 
 
 urlpatterns = [
