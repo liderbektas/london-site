@@ -26,20 +26,6 @@ const About = () => {
           </p>
         </div>
         <Content />
-        <div className='flex gap-x-24 mt-12 justify-between items-center w-[1116px] mx-auto'>
-          <Desc
-            title='Business Benefits'
-            desc='With state and local incentives and no annual required maintenance, Tesla vehicles cost less to own. Private businesses and tax-exempt organizations alike are eligible for fleet benefits.'
-          />
-          <Desc
-            title='Business Benefits'
-            desc='With state and local incentives and no annual required maintenance, Tesla vehicles cost less to own. Private businesses and tax-exempt organizations alike are eligible for fleet benefits.'
-          />
-          <Desc
-            title='Business Benefits'
-            desc='With state and local incentives and no annual required maintenance, Tesla vehicles cost less to own. Private businesses and tax-exempt organizations alike are eligible for fleet benefits.'
-          />
-        </div>
       </div>
     </div>
   );

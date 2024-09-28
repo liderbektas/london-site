@@ -1,8 +1,9 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import newDoner from "../../assets/img/newDoner.jpeg";
-import new2 from "../../assets/img/new2.jpeg";
-import wp from "../../assets/img/WhatsApp Image 2024-09-08 at 22.37.23 (1).jpeg";
+import new2 from "../../assets/img/FireBurger.jpg";
+import wp from "../../assets/img/FirePizza.jpg";
+import homePage from "../../assets/img/Fire.jpg"
 
 const Slider = () => {
   return (
@@ -18,7 +19,7 @@ const Slider = () => {
       >
         <div className="relative h-full">
           <img
-            src={newDoner}
+            src={homePage}
             alt="FireFly"
             className="object-cover w-full h-screen bg-center"
           />

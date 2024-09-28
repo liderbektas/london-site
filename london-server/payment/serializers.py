@@ -7,4 +7,5 @@ class CheckoutSerializer(serializers.Serializer):
     apartment_name = serializers.CharField(max_length=255)
     flat_number = serializers.CharField(max_length=10)
     phone_number = serializers.CharField(max_length=20)
+    post_code = serializers.CharField(max_length=255)
 

@@ -7,20 +7,18 @@ const Contact = () => {
       <div className="w-[1100px] mx-auto flex justify-between items-center">
         <Info
           title="Contact Us"
-          info="T. +05467438785"
-          extraInfo="M. cinkoscode@example.com"
+          info="📞 +4402089641014"
+          extraInfo="📧 alibabakebap1212@gmail.com"
         />
         <div className="px-32 border-x">
           <Info
             title="Address"
-            info="England Mahallesi Nato yolu caddesi"
-            extraInfo="21562 . Umraniye / England"
+            info="330 KILBURN LANE , QUEENS PARK W9 3EF"
           />
         </div>
         <Info
           title="Opening Hours"
           info="Everyday : From 11.30 To 23.30"
-          extraInfo="Kitchen Closes At 22.00"
         />
       </div>
 
