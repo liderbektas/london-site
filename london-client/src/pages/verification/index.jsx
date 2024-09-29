@@ -1,63 +1,65 @@
+import OtpInput from 'react-otp-input';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import { useState } from 'react';
-import { useHistory, useNavigate } from 'react-router-dom';
+import { IoArrowBackOutline } from 'react-icons/io5';
+import usePost from '../../hooks/post/custom';
 
-const Verification = () => {
-  const [verification_code, setCode] = useState('');
-  const [message, setMessage] = useState('');
+const Verification = ({ setIsVerificationPage }) => {
+  const { postData } = usePost(
+    'http://127.0.0.1:8000/payment/api/verify_phone',
+    'Code has been verified'
+  );
+  const [otp, setOtp] = useState('');
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setCode(e.target.value);
+  const handleChange = (otp) => {
+    setOtp(otp);
   };
 
   const verifyCode = async (e) => {
     e.preventDefault();
-    try {
-      // Kodun doğrulanması için backend'e gönder
-      const response = await axios.post(
-        'http://127.0.0.1:8000/payment/api/verify_phone',
-        {
-          verification_code: verification_code, // kodun burada doğru gönderildiğinden emin olun
-        }
-      );
+    const response = await postData({ verification_code: otp });
+    if (response) {
       navigate('/complete');
-      // Örnek: history.push('/next-page');
-    } catch (error) {
-      setMessage('Doğrulama başarısız oldu. Lütfen kodu kontrol edin.');
     }
   };
 
   return (
-    <div className='flex items-center justify-center w-screen h-screen text-black'>
-      <form
-        className='w-full max-w-lg p-8 bg-white rounded shadow-md'
-        onSubmit={verifyCode}
+    <form className='relative' onSubmit={verifyCode}>
+      <h2 className='mb-6 text-2xl font-bold text-center'>Doğrulama Kodu</h2>
+      <label className='block mb-4 text-center text-gray-700'>
+        5 Haneli Kod
+      </label>
+      <OtpInput
+        value={otp}
+        onChange={handleChange}
+        numInputs={5}
+        separator={<span>-</span>}
+        containerStyle={{ display: 'flex', justifyContent: 'center' }}
+        inputStyle={{
+          width: '50px',
+          height: '50px',
+          margin: '0 5px',
+          fontSize: '24px',
+          borderRadius: '5px',
+          border: '1px solid #ccc',
+          textAlign: 'center',
+        }}
+        renderInput={(props) => <input {...props} />}
+      />
+      <button
+        type='submit'
+        className='w-full px-4 py-2 mt-6 text-white bg-black rounded-md'
       >
-        <h2 className='mb-6 text-2xl font-bold'>Doğrulama Kodu</h2>
-        <div className='mb-4'>
-          <label className='block text-gray-700' htmlFor='code'>
-            6 Haneli Kod
-          </label>
-          <input
-            type='text'
-            id='code'
-            name='verification_code'
-            value={verification_code}
-            onChange={handleChange}
-            className='w-full px-3 py-2 border rounded'
-            required
-          />
-        </div>
-        <button
-          type='submit'
-          className='w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600'
-        >
-          Doğrula
-        </button>
-        {message && <p>{message}</p>}
-      </form>
-    </div>
+        Doğrula
+      </button>
+      <IoArrowBackOutline
+        onClick={() => setIsVerificationPage(false)}
+        className='absolute top-0 left-0 text-xl cursor-pointer'
+      />
+    </form>
   );
 };
 

@@ -1,11 +1,11 @@
-import Logo from "../../../../assets/img/D.png";
+import Logo from "../../../../../../assets/img/D.png";
 import { RiFacebookBoxFill } from "react-icons/ri";
 import { AiFillInstagram } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <div className="pt-32 pb-12 w-full mx-auto">
-      <div className="w-full flex items-center justify-center">
+    <div className="w-full pt-32 pb-12 mx-auto">
+      <div className="flex items-center justify-center w-full">
         <div className="flex flex-col gap-y-4 w-[1250px]">
           <div className="flex items-center justify-between">
             <div className="flex-1 border-t border-gray-300"></div>
@@ -14,11 +14,11 @@ const Footer = () => {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex gap-x-4">
-              <div className="flex items-center gap-x-2 cursor-pointer">
+              <div className="flex items-center cursor-pointer gap-x-2">
                 <RiFacebookBoxFill />
                 <span>Facebook</span>
               </div>
-              <div className="flex items-center gap-x-2 cursor-pointer">
+              <div className="flex items-center cursor-pointer gap-x-2">
                 <AiFillInstagram />
                 <span>Instagram</span>
               </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import Button from "../../../components/button";
+import Button from '../../../../components/button';
+
 
 const Content = () => {
   return (

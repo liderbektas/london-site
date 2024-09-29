@@ -1,11 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Success = () => {
+const Success = ({ setIsOrderCompleted }) => {
   const navigate = useNavigate();
 
   const returnHome = () => {
     navigate('/');
+    setIsOrderCompleted(false);
   };
 
   return (

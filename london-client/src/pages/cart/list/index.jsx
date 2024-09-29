@@ -2,7 +2,7 @@ import { useCart } from '../../../redux/hooks/hooks';
 import Items from './items';
 import Total from './totals';
 
-const List = ({ cart }) => {
+const List = ({ cart, setIsOrderCompleted }) => {
   const subTotal = cart.items.reduce(
     (acc, curr) =>
       acc + parseFloat(curr.item.price) * parseFloat(curr.item.quantity),
@@ -11,7 +11,7 @@ const List = ({ cart }) => {
   return (
     <div className='flex flex-col gap-y-14'>
       <Items cart={cart} />
-      <Total subTotal={subTotal} />
+      <Total setIsOrderCompleted={setIsOrderCompleted} subTotal={subTotal} />
     </div>
   );
 };

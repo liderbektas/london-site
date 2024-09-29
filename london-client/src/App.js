@@ -1,15 +1,15 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Order from './pages/order';
 import Layout from './layout';
 import { Toaster } from 'react-hot-toast';
 import Cart from './pages/cart';
-import Checkout from './pages/checkout';
-import Verification from './pages/verification';
 import Complete from './pages/complete';
 import Success from './pages/success';
 
 const App = () => {
+  const [isOrderCompleted, setIsOrderCompleted] = useState(false);
+
   return (
     <>
       <Toaster />
@@ -17,11 +17,24 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Layout />} />
           <Route path='/order/:categoryName' element={<Order />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/checkout' element={<Checkout />} />
-          <Route path='/verification' element={<Verification />} />
-          <Route path='/complete' element={<Complete />} />
-          <Route path='/success' element={<Success />} />
+          <Route
+            path='/cart'
+            element={<Cart setIsOrderCompleted={setIsOrderCompleted} />}
+          />
+          <Route
+            path='/complete'
+            element={isOrderCompleted ? <Complete /> : <Navigate to='/' />}
+          />
+          <Route
+            path='/success'
+            element={
+              isOrderCompleted ? (
+                <Success setIsOrderCompleted={setIsOrderCompleted} />
+              ) : (
+                <Navigate to='/' />
+              )
+            }
+          />
         </Routes>
       </div>
     </>

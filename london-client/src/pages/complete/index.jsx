@@ -1,44 +1,23 @@
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
 import { useCart } from '../../redux/hooks/hooks';
+import useFetch from '../../hooks/custom';
+import usePost from '../../hooks/post/custom';
 
 const Complete = () => {
-  const [data, setData] = useState(null);
+  const { data } = useFetch('http://127.0.0.1:8000/payment/api/order_summary');
+  const { postData } = usePost(
+    'http://127.0.0.1:8000/payment/api/order_complete',
+    'Order Successfully Completed'
+  );
   const cart = useCart();
   const navigate = useNavigate();
 
-  const fetch = async () => {
-    try {
-      const response = await axios.get(
-        'http://127.0.0.1:8000/payment/api/order_summary'
-      );
-      setData(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const orderComplete = async () => {
-    try {
-      const response = await axios.post(
-        'http://127.0.0.1:8000/payment/api/order_complete',
-        {}
-      );
-      alert(response.data.message); // Show confirmation message
+    const response = await postData({});
+    if (response) {
       navigate('/success');
-    } catch (error) {
-      console.log(
-        'Error completing order:',
-        error.response ? error.response.data : error.message
-      );
-      alert('Failed to complete the order. Please try again.');
     }
   };
-
-  useEffect(() => {
-    fetch();
-  }, []);
 
   return (
     <div className='w-screen h-screen p-4'>

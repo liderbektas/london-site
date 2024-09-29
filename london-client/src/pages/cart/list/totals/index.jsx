@@ -1,6 +1,6 @@
 import Checkout from './checkout';
 
-const Total = ({ subTotal }) => {
+const Total = ({ subTotal, setIsOrderCompleted }) => {
   return (
     <>
       <h2 className='text-4xl'>Cart totals</h2>
@@ -42,7 +42,7 @@ const Total = ({ subTotal }) => {
         </tbody>
       </table>
 
-      <Checkout />
+      <Checkout setIsOrderCompleted={setIsOrderCompleted} />
     </>
   );
 };

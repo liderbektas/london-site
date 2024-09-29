@@ -1,7 +1,7 @@
 import Home from '../pages/home';
-import About from '../pages/about';
-import Menus from '../pages/menu';
-import Contact from '../pages/contact';
+import About from '../pages/home/components/about';
+import Menus from '../pages/home/components/menu';
+import Contact from '../pages/home/components/contact';
 
 const Layout = () => {
   return (

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Button from '../../components/button';
-import MenuPDF from '../../assets/img/menu1.pdf';
+import MenuPDF from '../../../../assets/img/menu1.pdf';
+import Button from '../../../../components/button';
 
 const Menus = () => {
   return (

@@ -1,7 +1,8 @@
 import React from 'react';
 import Slider from '../../components/slider';
 import Header from '../header';
-import Content from './content';
+import Content from './components/content';
+
 
 const Home = () => {
   return (

@@ -1,5 +1,6 @@
-import Desc from './components/desc';
-import Content from './content';
+import Content from '../content';
+
+
 
 const About = () => {
   return (
