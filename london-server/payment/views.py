@@ -4,6 +4,9 @@ from rest_framework.response import Response
 from twilio.rest import Client  
 from .serializers import CheckoutSerializer
 import random
+from django.shortcuts import get_object_or_404
+from .models import Order
+from orders.models import Items, ItemSizes
 
 TWILIO_ACCOUNT_SID = "AC91a86a0af41379ca9899f1fb02f6027a"
 TWILIO_AUTH_TOKEN = "76580b391bf308b764bf30c3f3b5da40"
@@ -107,4 +110,47 @@ def order_summary(request):
 
     return Response(user_info, status=status.HTTP_200_OK)
 
-    
+@api_view(["POST"])
+def add_order_to_db(request):
+    try:
+        # Get customer details
+        first_name = request.data.get("first_name")
+        last_name = request.data.get("last_name")
+        road_name = request.data.get("road_name")
+        apartment_name = request.data.get("apartment_name")
+        flat_number = request.data.get("flat_number")
+        post_code = request.data.get("post_code")
+        phone_number = request.data.get("phone_number")
+
+        # Get order items details
+        items = request.data.get("items", [])
+
+        for item in items:
+            item_name = item.get("item_name")  # Now handling item_name directly
+            size_name = item.get("size_name")  # Now handling size_name directly
+            quantity = item.get("quantity")
+            price = item.get("price")
+            salad_toppings = item.get("salad_toppings", [])
+            sauce_toppings = item.get("sauce_toppings", [])
+
+            # Create a new order
+            Order.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                road_name=road_name,
+                apartment_name=apartment_name,
+                flat_number=flat_number,
+                post_code=post_code,
+                phone_number=phone_number,
+                item_name=item_name,
+                size_name=size_name,
+                price=price,
+                salad_toppings=salad_toppings,
+                sauce_toppings=sauce_toppings,
+                quantity=quantity
+            )
+
+        return Response({"message": "Order successfully created"}, status=status.HTTP_201_CREATED)
+
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
