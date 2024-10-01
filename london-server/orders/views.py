@@ -1,10 +1,9 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Items, ItemSizes, Categories
+from .models import Items, ItemSizes, Categories, Sizes
 from datetime import datetime, time
 import pytz
-
 
 @api_view(['POST'])
 def time_post_checker(request):
