@@ -4,7 +4,6 @@ const Total = ({ subTotal, setIsOrderCompleted }) => {
   return (
     <>
       <h2 className='text-4xl'>Cart totals</h2>
-
       <table className='w-full'>
         <tbody>
           <tr className='border-b-[0.5px]'>

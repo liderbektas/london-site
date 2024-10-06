@@ -7,7 +7,7 @@ const CheckerModal = ({ setChecker }) => {
   const [zip, setZip] = useState('');
   const [canOrder, setCanOrder] = useState(false);
 
-  const startOrder = '12:00:00';
+  const startOrder = '00:00:00';
   const closeOrder = '23:00:00';
 
   useEffect(() => {
@@ -33,38 +33,35 @@ const CheckerModal = ({ setChecker }) => {
     setCanOrder(isValidZip && isWithinOrderTime);
   }, [isValidZip, isWithinOrderTime]);
 
-  const handleCheck = useCallback(() => {
-    const currentTime = new Date().toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
+  const showError = (message) => {
+    toast.error(message, { duration: 5000, position: 'top-center' });
+  };
 
-    if (!(startOrder <= currentTime && currentTime < closeOrder)) {
-      toast.error("We don't do delivery at this time.", {
-        duration: 5000,
-        position: 'top-center',
-      });
+  const handleCheck = useCallback(() => {
+    if (!(startOrder <= time && time < closeOrder)) {
+      showError("We don't do delivery at this time");
     } else if (!zip) {
-      toast.error('Please enter a postcode.', {
-        duration: 5000,
-        position: 'top-center',
-      });
+      showError('Please enter a postcode.');
     } else if (!canOrder) {
-      toast.error("Sorry, we don't deliver to your area.", {
-        duration: 5000,
-        position: 'top-center',
-      });
+      showError("Sorry, we don't deliver to your area.");
     } else {
       setChecker(true);
     }
-  }, [zip, canOrder, setChecker]);
+  }, [zip, canOrder, setChecker, time]);
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center text-black bg-black bg-opacity-50'>
-      <div className='h-[200px] w-[400px] flex items-center flex-col bg-white rounded-md text-black p-4'>
-        <h2 className='mb-6 text-3xl font-bold text-center'>
-          Check Your PostCode
+      <div className='h-[300px] w-[600px] flex items-center flex-col bg-white rounded-md text-black p-4'>
+        <h2 className='mb-4 text-3xl font-bold text-center'>
+        Check Postcode Availability and Delivery Time
         </h2>
+
+        <p className='mb-6 text-lg text-center'>
+          Our working hours are between 12:00 PM and 11:00 PM.
+          <br />
+          <span className='text-red-600'>Current time: {time}</span>
+        </p>
+
         <input
           onChange={(e) => setZip(e.target.value)}
           placeholder='PostCode'

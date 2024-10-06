@@ -1,8 +1,8 @@
+import Header from '../header';
+import List from './list';
 import { useEffect } from 'react';
 import { useCart } from '../../redux/hooks/hooks';
-import Header from '../header';
 import { Link } from 'react-router-dom';
-import List from './list';
 
 const Cart = ({ setIsOrderCompleted, setChecker }) => {
   const cart = useCart();
