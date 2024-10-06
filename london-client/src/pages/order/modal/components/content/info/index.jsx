@@ -5,20 +5,19 @@ const Info = ({ item, extras, selectedSize, handleAdd }) => {
   return (
     <>
       <div className='flex flex-col mt-8 gap-y-4'>
-        <span className='text-2xl font-semibold'>
-          Item Price: £{item.price}
-        </span>
-        <span className='text-2xl font-semibold'>
-          Total Price: £{selectedSizePrice}
+        <span className='text-3xl font-bold text-center text-black'>
+          Total Price: £{selectedSizePrice.toFixed(2)}
         </span>
       </div>
 
-      <button
+     <div className='flex justify-center w-full'>
+     <button
         onClick={handleAdd}
-        className='justify-center w-full mt-8 text-xl text-black bg-white rounded hover:text-white hover:bg-transparent border-[0.5px] transition duration-200 px-4 py-1'
+        className='justify-center px-4 py-1 mt-8 text-xl text-white duration-200 bg-black rounded-lg w-[420px]'
       >
         Add to Cart
       </button>
+     </div>
     </>
   );
 };

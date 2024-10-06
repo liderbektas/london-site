@@ -1,6 +1,5 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import newDoner from "../../assets/img/newDoner.jpeg";
 import new2 from "../../assets/img/FireBurger.jpg";
 import wp from "../../assets/img/FirePizza.jpg";
 import homePage from "../../assets/img/Fire.jpg"
@@ -23,7 +22,6 @@ const Slider = () => {
             alt="FireFly"
             className="object-cover w-full h-screen bg-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
         </div>
         <div className="relative h-full">
@@ -32,7 +30,6 @@ const Slider = () => {
             alt="FireBurger"
             className="object-cover w-full h-screen"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
         </div>
         <div className="relative h-full">
@@ -41,7 +38,6 @@ const Slider = () => {
             alt="FirePizza"
             className="object-cover w-full h-screen bg-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
         </div>
       </Carousel>

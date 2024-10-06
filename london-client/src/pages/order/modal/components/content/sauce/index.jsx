@@ -17,15 +17,15 @@ const Sauce = ({
     <>
       {sauceToppings.length > 0 && (
         <div className='mt-8'>
-          <h3 className='text-2xl font-semibold'>Sauce Toppings</h3>
-          <div className='flex flex-wrap gap-2 mt-2'>
+          <h3 className='text-2xl font-semibold text-center text-black'>Sauce Toppings</h3>
+          <div className='grid grid-cols-3 gap-3 mt-2'> {/* Use grid layout */}
             {sauceToppings.map((sauce) => (
               <label
                 key={sauce.id}
-                className={`cursor-pointer px-7 py-1 border-[0.5px] rounded-md text-center ${
+                className={`cursor-pointer px-2 w-32 py-1 rounded-md text-center ${
                   selectedSauceToppings.includes(sauce.id)
                     ? 'bg-green-800 text-white'
-                    : 'bg-black'
+                    : 'bg-black text-white' // Added text color for non-selected state
                 }`}
                 onClick={() => handleSauceToppingChange(sauce.id)}
               >

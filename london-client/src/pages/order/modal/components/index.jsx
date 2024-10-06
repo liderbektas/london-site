@@ -20,10 +20,11 @@ const Content = ({
     <div className='flex flex-col mt-12'>
       {(extras.salad_toppings?.length > 0 ||
         extras.sauce_toppings.length > 0) && (
-        <h3 className='text-3xl font-semibold'>Free Additions</h3>
+        <h3 className='text-3xl font-semibold text-center text-black'>Free Additions</h3>
       )}
 
-      {extras.salad_toppings?.length > 0 && (
+     <div className='flex gap-x-7'>
+     {extras.salad_toppings?.length > 0 && (
         <Salad
           saladToppings={extras.salad_toppings}
           selectedSaladToppings={selectedSaladToppings}
@@ -38,6 +39,7 @@ const Content = ({
           setSelectedSauceToppings={setSelectedSauceToppings}
         />
       )}
+     </div>
 
       <Info item={item} selectedSize={selectedSize} extras={extras} handleAdd={handleAdd} />
     </div>

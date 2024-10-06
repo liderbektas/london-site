@@ -27,23 +27,25 @@ const Modal = ({ item, closeModal }) => {
   const handleAdd = useCallback(async () => {
     try {
       dispatch(addToCartAPI(item.id, selectedSize, selectedSaladToppings, selectedSauceToppings));
-      toast.success('Ürün sepete eklendi', { duration: 3000,position: 'top-right' });
+      toast.success('Ürün sepete eklendi', { duration: 3000, position: 'top-right' });
       closeModal();
-    } catch {toast.error('Sepete ürün eklenemedi', { duration: 3000, position: 'top-right',})}
+    } catch {
+      toast.error('Sepete ürün eklenemedi', { duration: 3000, position: 'top-right' });
+    }
   }, [dispatch, item.id, selectedSize, selectedSaladToppings, selectedSauceToppings, closeModal]);
-
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
-      <div className='relative w-[800px] h-[400px] p-6 mx-4 overflow-y-auto bg-black border-[0.5px] border-white rounded-lg'>
+      <div className='relative w-[800px] h-auto p-6 mx-4 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg'>
         <IoCloseOutline
           onClick={closeModal}
-          className='absolute text-3xl cursor-pointer top-2 right-2'
+          className='absolute text-3xl text-black cursor-pointer top-4 right-4 hover:text-gray-800'
         />
 
-        <div className='flex flex-col'>
-          <h2 className='text-3xl font-semibold text-center'>{item.name}</h2>
-          <p className='mt-2 text-xl text-center'>{item.description}</p>
+        <div className='flex flex-col items-center'> {/* Center align items */}
+          <h2 className='text-3xl font-semibold text-center text-black'>{item.name}</h2>
+          <p className='mt-2 text-lg text-center text-gray-800'>{item.description}</p>
+         
 
           {extras && (
             <>
@@ -51,6 +53,7 @@ const Modal = ({ item, closeModal }) => {
                 setSelectedSize={setSelectedSize}
                 selectedSize={selectedSize}
                 extras={extras}
+                item={item}
               />
 
               <Content

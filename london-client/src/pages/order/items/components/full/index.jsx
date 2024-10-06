@@ -5,7 +5,7 @@ const Full = ({ products, openModal }) => {
         <div
           onClick={() => openModal(product)}
           key={index}
-          className='flex flex-col justify-between p-4 bg-black shadow-md cursor-pointer'
+          className='flex flex-col justify-between p-4 transition duration-200 cursor-pointer hover:scale-105'
         >
           <div className='flex items-start gap-x-4'>
             <div className='w-1/4'>

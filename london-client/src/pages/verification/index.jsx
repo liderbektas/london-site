@@ -1,7 +1,5 @@
 import OtpInput from 'react-otp-input';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
 import { useState } from 'react';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import usePost from '../../hooks/post/custom';

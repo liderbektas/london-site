@@ -1,4 +1,4 @@
-import Image from '../../../assets/img/alibabadukkan.jpeg';
+import Image from "../../../../../assets/img/alibabadukkan.jpeg"
 
 const Content = () => {
   return (

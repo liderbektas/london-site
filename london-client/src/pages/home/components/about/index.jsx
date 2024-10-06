@@ -1,13 +1,11 @@
-import Content from '../content';
-
-
+import Content from './content';
 
 const About = () => {
   return (
     <div className='w-screen h-full pb-32 bg-black'>
       <div className='flex flex-col items-center gap-y-24'>
-        <div className='w-[660px] flex flex-col gap-y-2 mx-auto'>
-          <h2 className='pt-32 text-3xl text-center'>About Our Story</h2>
+      <div className='w-[660px] flex flex-col gap-y-2 mx-auto'>
+          <h2 className='pt-32 text-3xl font-bold text-center'>About Our Story</h2>
           <p className='text-md'>
             Located in the heart of London at 330 Kilburn Lane, Queen’s Park,
             this family-run restaurant has been a cherished part of the

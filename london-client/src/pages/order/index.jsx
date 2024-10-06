@@ -1,12 +1,14 @@
+import { useState } from 'react';
 import Header from '../header';
 import Items from './items';
+import Checker from './checker';
 
-const Order = () => {
+const Order = ({ checker, setChecker }) => {
   return (
-    <div className='w-screen h-screen bg-black'>
+    <div className='w-screen h-screen bg-gradient-to-b from-black via-gray-900 to-black'>
       <div className='w-[1200px] mx-auto pt-2 flex flex-col'>
         <Header />
-        <Items />
+        {checker ? <Items /> : <Checker setChecker={setChecker} />}
       </div>
     </div>
   );

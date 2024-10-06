@@ -1,13 +1,22 @@
+import { useEffect } from 'react';
 import { useCart } from '../../redux/hooks/hooks';
 import Header from '../header';
 import { Link } from 'react-router-dom';
 import List from './list';
 
-const Cart = ({ setIsOrderCompleted }) => {
+const Cart = ({ setIsOrderCompleted, setChecker }) => {
   const cart = useCart();
 
+  const setCartChecker = () => {
+    setChecker(true);
+  };
+
+  useEffect(() => {
+    setCartChecker();
+  }, [setChecker]);
+
   return (
-    <div className='w-screen h-screen'>
+    <div className='w-screen h-screen bg-gradient-to-b from-black via-gray-900 to-black'>
       <Header />
       <div className='mt-20 w-[1200px] mx-auto'>
         {cart.items.length > 0 ? (

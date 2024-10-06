@@ -5,7 +5,7 @@ import Navbar from './navbar';
 import { NavLink } from 'react-router-dom';
 import useFetch from '../../hooks/custom';
 
-const Header = () => {
+const Header = ({ setChecker }) => {
   const { data } = useFetch('http://127.0.0.1:8000/api/categories');
   const location = useLocation();
 
