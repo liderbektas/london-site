@@ -72,7 +72,7 @@ const Complete = () => {
   }
 
   return (
-    <div className='flex flex-col items-center w-full h-[812px] overflow-hidden p-8 text-white bg-gradient-to-b from-black via-gray-900 to-black'>
+    <div className='flex flex-col items-center w-full h-[842px] overflow-hidden p-8 text-white bg-gradient-to-b from-black via-gray-900 to-black'>
       <h1 className='mb-6 text-5xl font-bold text-center text-[#f8f8f8]'>
         Order Summary
       </h1>

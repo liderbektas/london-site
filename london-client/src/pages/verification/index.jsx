@@ -26,9 +26,9 @@ const Verification = ({ setIsVerificationPage }) => {
 
   return (
     <form className='relative' onSubmit={verifyCode}>
-      <h2 className='mb-6 text-2xl font-bold text-center'>Doğrulama Kodu</h2>
+      <h2 className='mb-6 text-2xl font-bold text-center'>Verification Code</h2>
       <label className='block mb-4 text-center text-gray-700'>
-        5 Haneli Kod
+        5 Digit Code
       </label>
       <OtpInput
         value={otp}

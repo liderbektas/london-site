@@ -6,8 +6,9 @@ const CheckerModal = ({ setChecker }) => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const [zip, setZip] = useState('');
   const [canOrder, setCanOrder] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
-  const startOrder = '00:00:00';
+  const startOrder = '11:00:00';
   const closeOrder = '23:00:00';
 
   useEffect(() => {
@@ -33,49 +34,64 @@ const CheckerModal = ({ setChecker }) => {
     setCanOrder(isValidZip && isWithinOrderTime);
   }, [isValidZip, isWithinOrderTime]);
 
-  const showError = (message) => {
-    toast.error(message, { duration: 5000, position: 'top-center' });
-  };
-
   const handleCheck = useCallback(() => {
-    if (!(startOrder <= time && time < closeOrder)) {
-      showError("We don't do delivery at this time");
+    if (!isWithinOrderTime) {
+      setShowErrorModal(true); // Show the error modal for working hours
     } else if (!zip) {
-      showError('Please enter a postcode.');
+      setShowErrorModal(false);
+      toast.error('Please enter a postcode.', {
+        duration: 3000,
+        position: 'top-center', // Set position to middle
+      });
     } else if (!canOrder) {
-      showError("Sorry, we don't deliver to your area.");
+      setShowErrorModal(false);
+      toast.error("Sorry, we don't deliver to your area.", {
+        duration: 3000,
+        position: 'top-center', // Set position to middle
+      });
     } else {
-      setChecker(true);
+      setShowErrorModal(false);
+      setChecker(true); // Proceed if everything is fine
     }
-  }, [zip, canOrder, setChecker, time]);
+  }, [zip, canOrder, setChecker, time, isWithinOrderTime]);
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center text-black bg-black bg-opacity-50'>
-      <div className='h-[300px] w-[600px] flex items-center flex-col bg-white rounded-md text-black p-4'>
-        <h2 className='mb-4 text-3xl font-bold text-center'>
-        Check Postcode Availability and Delivery Time
+      <div className='h-auto w-[500px] flex items-center flex-col bg-white rounded-md text-black p-8'>
+        <h2 className='mb-6 text-3xl font-bold text-center'>
+          Check Postcode Availability
         </h2>
-
-        <p className='mb-6 text-lg text-center'>
-          Our working hours are between 12:00 PM and 11:00 PM.
-          <br />
-          <span className='text-red-600'>Current time: {time}</span>
-        </p>
 
         <input
           onChange={(e) => setZip(e.target.value)}
           placeholder='PostCode'
-          className='w-1/2 px-4 py-2 text-sm text-black border-[1.5px] border-black outline-none'
+          className='w-3/4 px-6 py-3 text-lg text-black border-[1.5px] border-black outline-none mb-8'
         />
+
+        {/* Conditionally render the second modal (error message) if not within order time */}
+        {showErrorModal && (
+          <div className='mb-6 text-center'>
+            <span className='block font-bold text-lg'>
+              Sorry, we are not accepting orders at this time.
+            </span>
+
+            <span className='block'>
+              Our service hours are between{' '}
+              <span className='font-bold text-red-600'>11:00 AM and 11:00 PM</span>.
+            </span>
+          </div>
+        )}
 
         <button
           onClick={handleCheck}
           type='submit'
-          className='w-full px-4 py-2 mt-6 text-white bg-black rounded-md'
+          className='w-3/4 px-6 py-3 text-white bg-black rounded-md text-lg'
         >
           Check
         </button>
       </div>
+
+      {/* No need for ToastContainer as react-hot-toast automatically handles it */}
     </div>
   );
 };

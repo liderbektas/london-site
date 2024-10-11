@@ -54,7 +54,7 @@ def add_to_cart(request):
                 "item_id": item.id,
                 "name": item.name,
                 "description": item.description,
-                "image_url": item.image.url if item.image else None,  # Assuming item.image is an ImageField
+                "image_url": item.image.url if item.image else None,  
                 "selected_size": {
                     "size_id": size.size_id,
                 },

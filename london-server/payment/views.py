@@ -5,7 +5,7 @@ from twilio.rest import Client
 from .serializers import CheckoutSerializer
 import random
 from django.shortcuts import get_object_or_404
-from .models import Order
+from .models import Order, Item
 from orders.models import Items, ItemSizes
 
 TWILIO_ACCOUNT_SID = "AC91a86a0af41379ca9899f1fb02f6027a"
@@ -113,7 +113,6 @@ def order_summary(request):
 @api_view(["POST"])
 def add_order_to_db(request):
     try:
-        # Get customer details
         first_name = request.data.get("first_name")
         last_name = request.data.get("last_name")
         road_name = request.data.get("road_name")
@@ -122,26 +121,28 @@ def add_order_to_db(request):
         post_code = request.data.get("post_code")
         phone_number = request.data.get("phone_number")
 
-        # Get order items details
+        
         items = request.data.get("items", [])
-
+ 
+        order = Order.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            road_name=road_name,
+            apartment_name=apartment_name,
+            flat_number=flat_number,
+            post_code=post_code,
+            phone_number=phone_number,
+        )
         for item in items:
-            item_name = item.get("item_name")  # Now handling item_name directly
-            size_name = item.get("size_name")  # Now handling size_name directly
+            item_name = item.get("item_name")  
+            size_name = item.get("size_name")  
             quantity = item.get("quantity")
             price = item.get("price")
             salad_toppings = item.get("salad_toppings", [])
             sauce_toppings = item.get("sauce_toppings", [])
 
-            # Create a new order
-            Order.objects.create(
-                first_name=first_name,
-                last_name=last_name,
-                road_name=road_name,
-                apartment_name=apartment_name,
-                flat_number=flat_number,
-                post_code=post_code,
-                phone_number=phone_number,
+            item_instance = Item.objects.create(  
+                order=order,
                 item_name=item_name,
                 size_name=size_name,
                 price=price,
