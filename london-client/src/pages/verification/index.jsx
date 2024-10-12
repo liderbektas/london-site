@@ -51,7 +51,7 @@ const Verification = ({ setIsVerificationPage }) => {
         type='submit'
         className='w-full px-4 py-2 mt-6 text-white bg-black rounded-md'
       >
-        Doğrula
+        VERIFY
       </button>
       <IoArrowBackOutline
         onClick={() => setIsVerificationPage(false)}

@@ -15,7 +15,9 @@ const Form = ({ formik }) => {
             value={formik.values.first_name}
             onChange={formik.handleChange}
             className='w-full px-3 py-2 border rounded'
+            placeholder='Ali Baba'
             required
+            autoFocus
           />
         </div>
         <div>
@@ -29,6 +31,7 @@ const Form = ({ formik }) => {
             value={formik.values.last_name}
             onChange={formik.handleChange}
             className='w-full px-3 py-2 border rounded'
+            placeholder='Kebab'
             required
           />
         </div>
@@ -45,6 +48,7 @@ const Form = ({ formik }) => {
           value={formik.values.road_name}
           onChange={formik.handleChange}
           className='w-full px-3 py-2 border rounded'
+          placeholder='330 Kilburn Lane'
           required
         />
       </div>
@@ -61,6 +65,7 @@ const Form = ({ formik }) => {
             value={formik.values.apartment_name}
             onChange={formik.handleChange}
             className='w-full px-3 py-2 border rounded'
+            placeholder='Queens Park'
           />
         </div>
         <div>
@@ -74,6 +79,7 @@ const Form = ({ formik }) => {
             value={formik.values.flat_number}
             onChange={formik.handleChange}
             className='w-full px-3 py-2 border rounded'
+            placeholder='1'
             required
           />
         </div>
@@ -91,6 +97,7 @@ const Form = ({ formik }) => {
             value={formik.values.phone_number}
             onChange={formik.handleChange}
             className='w-full px-3 py-2 border rounded'
+            placeholder='02089641014'
             required
           />
         </div>
@@ -105,6 +112,7 @@ const Form = ({ formik }) => {
             value={formik.values.post_code}
             onChange={formik.handleChange}
             className='w-full px-3 py-2 border rounded'
+            placeholder='W9 3EF'
             required
           />
         </div>

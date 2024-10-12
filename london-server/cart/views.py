@@ -74,3 +74,4 @@ def add_to_cart(request):
     except Exception as e:
         # Catch any unexpected errors and return an error response
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    

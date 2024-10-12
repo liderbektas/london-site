@@ -4,3 +4,5 @@ pip install django-cors-headers
 pip install twilio
 pip install pytz
 pip install Pillow 
+
+git reset --hard origin/main
