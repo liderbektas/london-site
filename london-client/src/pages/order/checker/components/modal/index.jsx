@@ -36,45 +36,42 @@ const CheckerModal = ({ setChecker }) => {
 
   const handleCheck = useCallback(() => {
     if (!isWithinOrderTime) {
-      setShowErrorModal(true); // Show the error modal for working hours
+      setShowErrorModal(true);
     } else if (!zip) {
       setShowErrorModal(false);
       toast.error('Please enter a postcode.', {
         duration: 3000,
-        position: 'top-center', // Set position to middle
+        position: 'top-center',
       });
     } else if (!canOrder) {
       setShowErrorModal(false);
       toast.error("Sorry, we don't deliver to your area.", {
         duration: 3000,
-        position: 'top-center', // Set position to middle
+        position: 'top-center', 
       });
     } else {
       setShowErrorModal(false);
-      setChecker(true); // Proceed if everything is fine
+      setChecker(true); 
     }
   }, [zip, canOrder, setChecker, time, isWithinOrderTime]);
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center text-black bg-black bg-opacity-50'>
-      <div className='h-auto w-[500px] flex items-center flex-col bg-white rounded-md text-black p-8'>
-        <h2 className='mb-6 text-3xl font-bold text-center'>
+      <div className='w-full max-w-[500px] mx-4 flex items-center flex-col bg-white rounded-md text-black p-6 md:p-8'>
+        <h2 className='mb-6 text-2xl font-bold text-center md:text-3xl'>
           Check Postcode Availability
         </h2>
 
         <input
           onChange={(e) => setZip(e.target.value)}
           placeholder='PostCode'
-          className='w-3/4 px-6 py-3 text-lg text-black border-[1.5px] border-black outline-none mb-8'
+          className='w-full px-4 py-3 text-lg text-black border-[1.5px] border-black outline-none mb-6'
         />
-
-        {/* Conditionally render the second modal (error message) if not within order time */}
         {showErrorModal && (
           <div className='mb-6 text-center'>
-            <span className='block font-bold text-lg'>
+            <span className='block text-lg font-bold'>
               Sorry, we are not accepting orders at this time.
             </span>
-
             <span className='block'>
               Our service hours are between{' '}
               <span className='font-bold text-red-600'>11:00 AM and 11:00 PM</span>.
@@ -85,13 +82,11 @@ const CheckerModal = ({ setChecker }) => {
         <button
           onClick={handleCheck}
           type='submit'
-          className='w-3/4 px-6 py-3 text-white bg-black rounded-md text-lg'
+          className='w-full px-6 py-3 text-lg text-white bg-black rounded-md'
         >
           Check
         </button>
       </div>
-
-      {/* No need for ToastContainer as react-hot-toast automatically handles it */}
     </div>
   );
 };

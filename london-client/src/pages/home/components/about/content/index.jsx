@@ -1,10 +1,10 @@
-import Image from "../../../../../assets/img/alibabadukkan.jpeg"
+import Image from "../../../../../assets/img/alibabadukkan.jpeg";
 
 const Content = () => {
   return (
-    <div className='w-[900px] h-[900px] overflow-hidden rounded-lg'>
+    <div className='w-full md:w-[800px] h-auto overflow-hidden rounded-lg px-4 md:px-8'>
       <img
-        className='object-cover w-full h-full'
+        className='object-cover w-full bg-center h-[500px] md:h-[900px] rounded-lg'
         src={Image}
         alt='image'
       />

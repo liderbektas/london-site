@@ -1,12 +1,12 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import new2 from "../../assets/img/FireBurger.jpg";
-import wp from "../../assets/img/FirePizza.jpg";
-import homePage from "../../assets/img/Fire.jpg"
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+import new2 from '../../assets/img/FireBurger.jpg';
+import wp from '../../assets/img/FirePizza.jpg';
+import homePage from '../../assets/img/Fire.jpg';
 
 const Slider = () => {
   return (
-    <div className="w-full h-full">
+    <div className='w-full h-full'>
       <Carousel
         autoPlay={true}
         infiniteLoop
@@ -15,30 +15,31 @@ const Slider = () => {
         transitionTime={500}
         interval={2000}
         showArrows={false}
+        showIndicators={false}
       >
-        <div className="relative h-full">
+        <div className='relative h-full'>
           <img
             src={homePage}
-            alt="FireFly"
-            className="object-cover w-full h-screen bg-center"
+            alt='FireFly'
+            className='object-cover w-full bg-center h-[700px] md:object-cover'
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+          <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent'></div>
         </div>
-        <div className="relative h-full">
+        <div className='relative h-full'>
           <img
             src={new2}
-            alt="FireBurger"
-            className="object-cover w-full h-screen"
+            alt='FireBurger'
+            className='object-cover w-full bg-center h-[700px] md:object-cover'
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+          <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent'></div>
         </div>
-        <div className="relative h-full">
+        <div className='relative h-full'>
           <img
             src={wp}
-            alt="FirePizza"
-            className="object-cover w-full h-screen bg-center"
+            alt='FirePizza'
+            className='object-cover w-full bg-center h-[700px] md:object-cover'
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+          <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent'></div>
         </div>
       </Carousel>
     </div>

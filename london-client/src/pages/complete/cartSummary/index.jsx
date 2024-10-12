@@ -6,7 +6,7 @@ const CartSummary = ({ cart }) => {
   }, 0);
 
   return (
-    <div className='flex flex-col w-1/2 px-6 overflow-hidden'>
+    <div className='flex flex-col w-full max-w-5xl px-6 overflow-hidden'>
       <h2 className='mb-4 text-3xl font-semibold text-center'>Cart Items</h2>
       <div className='flex-grow overflow-auto h-[500px]'>
         {cart.items.length > 0 ? (

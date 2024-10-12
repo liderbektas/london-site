@@ -6,9 +6,9 @@ import Content from './components/content';
 
 const Home = () => {
   return (
-    <div className='relative'>
+    <div className='relative overflow-hidden'>
       <Slider />
-      <div className='absolute top-0 left-1/2 transform -translate-x-1/2 w-[1200px] pt-2'>
+      <div className='absolute top-0 w-full pt-2 md:-translate-x-1/2 md:transform md:left-1/2'>
         <Header />
       </div>
         <Content />

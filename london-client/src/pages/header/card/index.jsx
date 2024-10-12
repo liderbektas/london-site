@@ -14,7 +14,7 @@ const Card = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link to='/cart' className='pb-2 border-b cursor-pointer'>
+      <Link to='/cart' className='pb-2 border-b cursor-pointer md:block'>
         Cart ({cart.items.length})
       </Link>
 

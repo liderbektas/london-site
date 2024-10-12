@@ -36,17 +36,16 @@ const Modal = ({ item, closeModal }) => {
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
-      <div className='relative w-[800px] h-auto p-6 mx-4 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg'>
+      <div className='relative w-full max-w-[600px] max-h-[600px] p-6 mx-4 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg'>
         <IoCloseOutline
           onClick={closeModal}
           className='absolute text-3xl text-black cursor-pointer top-4 right-4 hover:text-gray-800'
         />
 
-        <div className='flex flex-col items-center'> {/* Center align items */}
-          <h2 className='text-3xl font-semibold text-center text-black'>{item.name}</h2>
-          <p className='mt-2 text-lg text-center text-gray-800'>{item.description}</p>
+        <div className='flex flex-col items-center'>
+          <h2 className='text-2xl font-semibold text-center text-black md:text-3xl'>{item.name}</h2>
+          <p className='mt-2 text-base text-center text-gray-800 md:text-lg'>{item.description}</p>
          
-
           {extras && (
             <>
               <Sizes

@@ -16,7 +16,7 @@ const Complete = () => {
   const { postData } = usePost('http://127.0.0.1:8000/payment/api/order_complete', 'Order Successfully Completed');
   const cart = useCart();
   const navigate = useNavigate();
-  const [message, setMessage] = useState(''); // Message state
+  const [message, setMessage] = useState('');
 
   const orderComplete = useCallback(async () => {
     try {
@@ -51,7 +51,7 @@ const Complete = () => {
           salad_toppings: i?.item?.salad_toppings?.map((topping) => topping.name) || [],
           sauce_toppings: i?.item?.sauce_toppings?.map((sauce) => sauce.name) || [],
         })) || [],
-        message: message || 'No message', // Send the message
+        message: message || 'No message',
       });
     } catch (error) {
       console.error('Failed to post order', error);
@@ -69,11 +69,10 @@ const Complete = () => {
   }
 
   return (
-    <div className='flex flex-col items-center w-full h-auto overflow-hidden p-8 text-white bg-gradient-to-b from-black via-gray-900 to-black'>
+    <div className='flex flex-col items-center w-full h-auto p-8 overflow-hidden text-white bg-gradient-to-b from-black via-gray-900 to-black'>
       <h1 className='mb-6 text-5xl font-bold text-center text-[#f8f8f8]'>Order Summary</h1>
-      <div className='flex w-full max-w-5xl py-5 border rounded-lg shadow-lg'>
-        <CartSummary cart={cart} />
-        <div className='w-1/2 p-6 border-l border-gray-600'>
+      <div className='flex flex-col w-full max-w-5xl py-5 border rounded-lg shadow-lg md:flex-row'>
+        <div className='w-full p-6 border-b border-gray-600 md:w-1/2 md:border-b-0 md:border-r'>
           {data && (
             <div className='mb-6'>
               <h2 className='mb-4 text-3xl font-bold text-center'>User Information</h2>
@@ -81,27 +80,26 @@ const Complete = () => {
             </div>
           )}
         </div>
+        <div className='w-full p-6 border-b border-gray-600 md:w-1/2 md:border-b-0 md:border-l'>
+          <CartSummary cart={cart} />
+        </div>
       </div>
-
-      {/* Message Form Section */}
-      <div className='mt-8 w-full'>
-  <h2 className='text-3xl font-bold mb-4 text-center'>Leave a Message</h2>
-  <textarea
-    rows='4'
-    className='flex justify-center w-3/4 mx-auto border border-gray-700 bg-gray-800 text-white rounded-lg p-4 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out shadow-sm hover:shadow-lg'
-    placeholder='Write your message here...'
-    value={message}
-    onChange={(e) => setMessage(e.target.value)}
-    required
-  />
-</div>
-
-
+      <div className='w-full max-w-5xl mt-8'>
+        <h2 className='mb-4 text-3xl font-bold text-center'>Leave a Message</h2>
+        <textarea
+          rows='4'
+          className='flex justify-center w-3/4 p-4 mx-auto mb-6 text-white transition-all duration-200 ease-in-out bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 hover:shadow-lg'
+          placeholder='Write your message here...'
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+        />
+      </div>
 
       <div className='flex justify-center mt-8'>
         <button
           onClick={submitHandler}
-          className='px-64 py-3 text-white bg-transparent border-white border-[0.5px] hover:bg-white hover:text-black transition duration-200 ease-in-out'
+          className='px-12 py-3 text-white transition duration-200 ease-in-out bg-transparent border border-white hover:bg-white hover:text-black'
         >
           Complete Order
         </button>

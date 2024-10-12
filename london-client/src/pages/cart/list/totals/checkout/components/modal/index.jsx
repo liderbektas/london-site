@@ -34,7 +34,7 @@ const Modal = ({ setModal }) => {
     <div className='fixed inset-0 z-50 flex items-center justify-center text-black'>
       <div className='absolute inset-0 bg-black opacity-50'></div>
 
-      <div className='relative z-10 w-full max-w-lg p-8 bg-white rounded shadow-md'>
+      <div className='relative z-10 w-full p-8 mx-6 bg-white rounded shadow-md md:max-w-lg'>
         <IoIosClose
           onClick={() => setModal(false)}
           className='absolute text-4xl cursor-pointer top-1 right-2'

@@ -32,10 +32,8 @@ const cart = createSlice({
       const existingItem = state.items.find(item => item.item.item_id === action.payload);
       if (existingItem) {
         if (existingItem.item.quantity > 1) {
-          // Decrease the quantity
           existingItem.item.quantity -= 1;
         } else {
-          // Remove the item if quantity is 1
           state.items = state.items.filter(item => item.item.item_id !== action.payload);
         }
         localStorage.setItem('cartItem', JSON.stringify(state.items));

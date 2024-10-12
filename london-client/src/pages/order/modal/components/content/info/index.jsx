@@ -13,7 +13,7 @@ const Info = ({ item, extras, selectedSize, handleAdd }) => {
      <div className='flex justify-center w-full'>
      <button
         onClick={handleAdd}
-        className='justify-center px-4 py-1 mt-8 text-xl text-white duration-200 bg-black rounded-lg w-[420px]'
+        className='justify-center px-4 py-1 mt-8 text-xl text-white duration-200 bg-black rounded-lg w-[350px]  md:w-[420px]'
       >
         Add to Cart
       </button>
