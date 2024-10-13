@@ -27,7 +27,7 @@ const Navbar = () => {
       </ul>
 
       <button
-        className='flex items-center justify-center p-2 text-black transition duration-300 bg-gray-200 rounded-full md:hidden hover:bg-gray-300 focus:outline-none'
+        className='flex items-center justify-center p-2 text-white transition duration-300 bg-black rounded-full md:hidden hover:bg-gray-300 focus:outline-none'
         onClick={handleToggle}
       >
         {toggle ? (

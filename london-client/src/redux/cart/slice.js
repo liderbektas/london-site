@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid'; 
 
 const cart = createSlice({
   name: 'cart',
@@ -13,40 +14,26 @@ const cart = createSlice({
       localStorage.setItem('cartItem', JSON.stringify(action.payload));
     },
     addToCart: (state, action) => {
-      const existProduct = state.items.find(
-        (item) => item.item.item_id === action.payload.item.item_id
-      );
-      if (existProduct) {
-        existProduct.item.quantity += 1;
-      } else {
-        state.items.push(action.payload);
-      }
+      const newItem = { ...action.payload, cartItemId: uuidv4() }; 
+      console.log(newItem);
+      state.items.push(newItem);
+      localStorage.setItem('cartItem', JSON.stringify(state.items));
+    },
+    removeFromCart: (state, action) => {
+      state.items = state.items.filter((item) => item.cartItemId !== action.payload);
       localStorage.setItem('cartItem', JSON.stringify(state.items));
     },
     clearCart: (state) => {
       localStorage.removeItem('cartItem');
       state.items = [];
     },
-    removeFromCart: (state, action) => {
-      const existingItem = state.items.find(item => item.item.item_id === action.payload);
-      if (existingItem) {
-        if (existingItem.item.quantity > 1) {
-          existingItem.item.quantity -= 1;
-        } else {
-          state.items = state.items.filter(item => item.item.item_id !== action.payload);
-        }
-        localStorage.setItem('cartItem', JSON.stringify(state.items));
-      }
-    },
-    increaseQuantity: (state, action) => {
-      const existingItem = state.items.find(item => item.item.item_id === action.payload);
-      if (existingItem) {
-        existingItem.item.quantity += 1;
-        localStorage.setItem('cartItem', JSON.stringify(state.items));
-      }
-    },
   },
 });
 
-export const { addToCart, setCart, clearCart, removeFromCart, increaseQuantity } = cart.actions;
+export const {
+  addToCart,
+  setCart,
+  clearCart, 
+  removeFromCart,
+} = cart.actions;
 export default cart.reducer;
