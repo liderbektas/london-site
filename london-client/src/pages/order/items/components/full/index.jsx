@@ -16,7 +16,7 @@ const Full = ({ products, openModal }) => {
             <div className='flex flex-col justify-between flex-grow'>
               <div>
                 <h2 className='text-2xl font-bold'>{product.name}</h2>
-                <p className='mb-2 text-sm md:w-[400px] md:flex-wrap my-3'>{product.description}</p>
+                <p className='mb-2 text-sm sm:w-[400px] sm:flex-wrap my-3'>{product.description}</p>
               </div>
               <p className='text-lg font-bold'>£{product.price.toFixed(2)}</p>
             </div>
