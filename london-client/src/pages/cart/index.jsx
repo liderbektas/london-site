@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = ({ setIsOrderCompleted, setChecker }) => {
   const cart = useCart();
+  console.log(cart.items);
 
   const setCartChecker = () => {
     setChecker(true);

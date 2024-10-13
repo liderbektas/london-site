@@ -18,7 +18,7 @@ const Salad = ({
       {saladToppings.length > 0 && (
         <div className='md:mt-4'>
           <h3 className='mt-3 text-2xl font-semibold text-center text-black'>Salad Toppings</h3>
-          <div className='grid grid-cols-2 gap-3 mt-2'> {/* grid-cols-2 ile her satırda 2 seçenek */}
+          <div className='grid grid-cols-2 gap-3 mt-2'> 
             {saladToppings.map((topping) => (
               <label
                 key={topping.id}

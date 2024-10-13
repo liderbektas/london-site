@@ -3,9 +3,6 @@ import { removeFromCart, increaseQuantity } from '../../../../redux/cart/slice';
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 
-
-
-
 const Items = ({ cart }) => {
   const dispatch = useDispatch();
   
