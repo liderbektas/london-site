@@ -4,17 +4,17 @@ const Full = ({ products, openModal }) => {
       {products.items.map((product) => (
         <div
           onClick={() => openModal(product)}
-          key={product.id} // Use a unique identifier if available
-          className='flex flex-col p-4 text-white transition-transform duration-300 bg-gradient-to-b from-black via-gray-900 to-black rounded-lg shadow-lg cursor-pointer hover:scale-105 hover:shadow-xl'
+          key={product.id}
+          className='flex flex-col p-4 text-white transition-transform duration-300 rounded-lg shadow-lg cursor-pointer bg-[#0a0a0b] to-black hover:scale-105 hover:shadow-xl'
         >
           <div className='relative'>
             <img
               src={product.image}
               alt={product.name}
-              className='object-cover w-full h-64 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105' 
+              className='object-cover w-full h-64 transition-transform duration-300 transform rounded-lg shadow-md hover:scale-105' 
             />
-            <div className='absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 rounded-lg'>
-              <button className='px-3 py-1 text-lg font-semibold text-white border border-white rounded hover:bg-white hover:text-black transition duration-300'>
+            <div className='absolute inset-0 flex items-center justify-center transition-opacity duration-300 bg-black bg-opacity-50 rounded-lg opacity-0 hover:opacity-100'>
+              <button className='px-3 py-1 text-lg font-semibold text-white transition duration-300 border border-white rounded hover:bg-white hover:text-black'>
                 ORDER
               </button>
             </div>

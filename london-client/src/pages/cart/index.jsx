@@ -12,7 +12,7 @@ const Cart = ({ setIsOrderCompleted, checker, setChecker }) => {
   console.log(checker);
 
   return (
-    <div className='flex flex-col w-screen h-screen bg-gradient-to-b from-black via-gray-900 to-black'>
+    <div className='flex flex-col w-screen bg-[#0a0a0b]'>
       <Header checker={checker} />
       <div className='px-4 mx-auto mt-20 md:w-[1200px] md:px-0'>
         {cart.items.length > 0 ? (

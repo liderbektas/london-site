@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Hovered = ({ cart }) => {
   return (
-    <div className='absolute right-0 w-80 md:w-96 p-4 mt-2 bg-black border-white border-[0.5px] shadow-lg z-50 rounded-md flex flex-col'>
+    <div className='absolute right-0 w-80 md:w-96 p-4 mt-2 bg-[#0a0a0b] border-white border-[0.5px] shadow-lg z-50 rounded-md flex flex-col'>
       <ul className='overflow-y-auto max-h-[350px] flex-grow'>
         {cart.items.map((product) => (
           <li

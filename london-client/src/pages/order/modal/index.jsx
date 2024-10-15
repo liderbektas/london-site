@@ -27,10 +27,10 @@ const Modal = ({ item, closeModal }) => {
   const handleAdd = useCallback(async () => {
     try {
       dispatch(addToCartAPI(item.id, selectedSize, selectedSaladToppings, selectedSauceToppings));
-      toast.success('Added to Cart', { duration: 3000, position: 'top-right' });
+      toast.success('Added to Cart', { duration: 3000, position: 'top-center' });
       closeModal();
     } catch {
-      toast.error('Failed Adding to Cart', { duration: 3000, position: 'top-right' });
+      toast.error('Failed Adding to Cart', { duration: 3000, position: 'top-center' });
     }
   }, [dispatch, item.id, selectedSize, selectedSaladToppings, selectedSauceToppings, closeModal]);
 

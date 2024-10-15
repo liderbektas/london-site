@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid'; 
+import { v4 as uuidv4 } from 'uuid';
 
 const cart = createSlice({
   name: 'cart',
@@ -9,10 +9,10 @@ const cart = createSlice({
       if (storedItems) {
         try {
           const parsedItems = JSON.parse(storedItems);
-          return Array.isArray(parsedItems) ? parsedItems : []; // Ensure it's an array
+          return Array.isArray(parsedItems) ? parsedItems : [];
         } catch (error) {
           console.error('Error parsing cart items from localStorage:', error);
-          return []; // Fallback to an empty array on parsing error
+          return [];
         }
       }
       return [];
@@ -24,13 +24,29 @@ const cart = createSlice({
       localStorage.setItem('cartItem', JSON.stringify(action.payload));
     },
     addToCart: (state, action) => {
-      const newItem = { ...action.payload, cartItemId: uuidv4() }; 
+      const newItem = { ...action.payload, cartItemId: uuidv4() };
       console.log(newItem);
       state.items.push(newItem);
       localStorage.setItem('cartItem', JSON.stringify(state.items));
     },
+    increaseQuantity: (state, action) => {
+      const existItem = state.items.find(
+        (i) => i.cartItemId === action.payload
+      );
+      if (existItem) {
+        existItem.item.quantity += 1;
+      }
+      localStorage.setItem('cartItem', JSON.stringify(state.items));
+    },
     removeFromCart: (state, action) => {
-      state.items = state.items.filter((item) => item.cartItemId !== action.payload);
+      const existItem = state.items.find((item) => item.cartItemId === action.payload);
+      if (existItem) {
+        if (existItem.item.quantity > 1) {
+          existItem.item.quantity -= 1;
+        } else {
+          state.items = state.items.filter((i) => i.cartItemId !== action.payload);
+        }
+      }
       localStorage.setItem('cartItem', JSON.stringify(state.items));
     },
     clearCart: (state) => {
@@ -43,7 +59,8 @@ const cart = createSlice({
 export const {
   addToCart,
   setCart,
-  clearCart, 
+  clearCart,
+  increaseQuantity,
   removeFromCart,
 } = cart.actions;
 export default cart.reducer;

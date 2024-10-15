@@ -72,9 +72,8 @@ const Complete = () => {
     clearCartItems();
   }, [postOrder, orderComplete]);
 
-
   return (
-    <div className='flex flex-col items-center w-full h-auto p-8 overflow-hidden text-white bg-gradient-to-l from-black via-gray-900 to-black'>
+    <div className='flex flex-col items-center w-full h-auto p-8 overflow-hidden text-white bg-[#0a0a0b]'>
       <h1 className='mb-6 text-5xl font-bold text-center text-[#f8f8f8]'>
         Order Summary
       </h1>
@@ -97,7 +96,7 @@ const Complete = () => {
         <h2 className='mb-4 text-3xl font-bold text-center'>Leave a Message</h2>
         <textarea
           rows='4'
-          className='flex justify-center w-3/4 p-4 mx-auto mb-6 text-white transition-all duration-200 ease-in-out bg-gray-900 border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 hover:shadow-lg'
+          className='flex justify-center w-3/4 p-4 mx-auto mb-6 text-white transition-all duration-200 ease-in-out bg-[#27272a] border border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-[0.5px] focus:ring-white hover:shadow-lg'
           placeholder='Write your message here...'
           value={message}
           onChange={(e) => setMessage(e.target.value)}

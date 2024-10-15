@@ -8,7 +8,7 @@ const usePost = (url, message) => {
       const response = await axios.post(url, data);
       toast.success(message, {
         duration: 3000,
-        position: 'top-right',
+        position: 'top-center',
       });
       return response.data;
     } catch (err) {

@@ -33,7 +33,7 @@ const Slider = () => {
         </div>
         <div className='relative h-full'>
           <img
-            src={isMd ? otherImage1 : burger} // Change based on screen size
+            src={isMd ? otherImage1 : burger}
             alt='FireBurger'
             className='object-cover w-full bg-center h-[700px] md:object-cover'
           />

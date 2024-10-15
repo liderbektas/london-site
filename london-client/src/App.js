@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
       <Toaster />
-      <div className='overflow-auto text-white bg-black'>
+      <div className='overflow-auto text-white bg-[black]'>
         <Routes>
           <Route path='/' element={<Layout checker={checker} />} />
           <Route
