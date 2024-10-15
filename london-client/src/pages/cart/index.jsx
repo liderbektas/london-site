@@ -3,25 +3,24 @@ import List from './list';
 import { useEffect } from 'react';
 import { useCart } from '../../redux/hooks/hooks';
 import { Link } from 'react-router-dom';
+import Checker from '../order/checker';
+import CheckerModal from '../order/checker/components/modal';
 
-const Cart = ({ setIsOrderCompleted, setChecker }) => {
+const Cart = ({ setIsOrderCompleted, checker, setChecker }) => {
   const cart = useCart();
-  console.log(cart.items);
 
-  const setCartChecker = () => {
-    setChecker(true);
-  };
-
-  useEffect(() => {
-    setCartChecker();
-  }, [setChecker]);
+  console.log(checker);
 
   return (
     <div className='flex flex-col w-screen h-screen bg-gradient-to-b from-black via-gray-900 to-black'>
-      <Header />
+      <Header checker={checker} />
       <div className='px-4 mx-auto mt-20 md:w-[1200px] md:px-0'>
         {cart.items.length > 0 ? (
-          <List setIsOrderCompleted={setIsOrderCompleted} cart={cart} />
+          checker ? (
+            <List setIsOrderCompleted={setIsOrderCompleted} cart={cart} />
+          ) : (
+            <CheckerModal setChecker={setChecker} />
+          )
         ) : (
           <div className='flex flex-col items-center justify-center mt-48 gap-y-16'>
             <div className='w-full max-w-md p-4 text-2xl text-center'>

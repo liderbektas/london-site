@@ -5,7 +5,7 @@ import Navbar from './navbar';
 import useFetch from '../../hooks/custom';
 import Links from './navbar/links';
 
-const Header = () => {
+const Header = ({ checker }) => {
   const { data } = useFetch('http://127.0.0.1:8000/api/categories');
   const location = useLocation();
 
@@ -16,8 +16,12 @@ const Header = () => {
       <div className='flex-shrink-0 hidden md:block'>
         <Logos />
       </div>
-      {location.pathname === '/' ? <Navbar /> : <Links categories={categories} />}
-      <Card />
+      {location.pathname === '/' ? (
+        <Navbar />
+      ) : (
+        <Links categories={categories} />
+      )}
+      <Card checker={checker}  />
     </header>
   );
 };

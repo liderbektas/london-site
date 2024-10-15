@@ -4,11 +4,15 @@ import burger from '../../assets/img/burger-1.jpg';
 import pizza from '../../assets/img/pizza-1.jpg';
 import doner from '../../assets/img/doner-1.jpg';
 import homePage from '../../assets/img/Fire.jpg';
+import otherImage1 from '../../assets/img/FireBurger.jpg'; 
+import otherImage2 from '../../assets/img/FirePizza.jpg'; 
+import otherImage3 from '../../assets/img/doner.jpg';
 
 const Slider = () => {
+  const isMd = window.innerWidth >= 768; 
+
   return (
     <div className='w-full h-full'>
-      {/* First Slider */}
       <Carousel
         autoPlay={true}
         infiniteLoop
@@ -29,7 +33,7 @@ const Slider = () => {
         </div>
         <div className='relative h-full'>
           <img
-            src={burger}
+            src={isMd ? otherImage1 : burger} // Change based on screen size
             alt='FireBurger'
             className='object-cover w-full bg-center h-[700px] md:object-cover'
           />
@@ -37,7 +41,7 @@ const Slider = () => {
         </div>
         <div className='relative h-full'>
           <img
-            src={pizza}
+            src={isMd ? otherImage2 : pizza} 
             alt='FirePizza'
             className='object-cover w-full bg-center h-[700px] md:object-cover'
           />
@@ -45,7 +49,7 @@ const Slider = () => {
         </div>
         <div className='relative h-full'>
           <img
-            src={doner}
+            src={isMd ? otherImage3 : doner}
             alt='FireDoner'
             className='object-cover w-full bg-center h-[700px] md:object-cover'
           />

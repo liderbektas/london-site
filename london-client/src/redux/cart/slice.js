@@ -4,9 +4,19 @@ import { v4 as uuidv4 } from 'uuid';
 const cart = createSlice({
   name: 'cart',
   initialState: {
-    items: localStorage.getItem('cartItem')
-      ? JSON.parse(localStorage.getItem('cartItem'))
-      : [],
+    items: (() => {
+      const storedItems = localStorage.getItem('cartItem');
+      if (storedItems) {
+        try {
+          const parsedItems = JSON.parse(storedItems);
+          return Array.isArray(parsedItems) ? parsedItems : []; // Ensure it's an array
+        } catch (error) {
+          console.error('Error parsing cart items from localStorage:', error);
+          return []; // Fallback to an empty array on parsing error
+        }
+      }
+      return [];
+    })(),
   },
   reducers: {
     setCart: (state, action) => {

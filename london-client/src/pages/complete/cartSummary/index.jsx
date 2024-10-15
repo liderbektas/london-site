@@ -1,4 +1,4 @@
-import CartItems from './cartItems';
+import CartItems from '../cartSummary/cartItems'; 
 
 const CartSummary = ({ cart }) => {
   const totalPrice = cart.items.reduce((total, item) => {
@@ -6,18 +6,23 @@ const CartSummary = ({ cart }) => {
   }, 0);
 
   return (
-    <div className='flex flex-col w-full max-w-5xl px-6 overflow-hidden'>
-      <h2 className='mb-4 text-3xl font-semibold text-center'>Cart Items</h2>
-      <div className='flex-grow overflow-auto h-[500px]'>
+    <div className="flex flex-col w-full max-w-4xl px-4 mx-auto">
+      {/* Cart Title */}
+      <h2 className="mb-6 text-3xl font-bold text-center text-white">Your Cart</h2>
+      
+      {/* Cart Items Section */}
+      <div className="flex-grow overflow-auto h-[500px] rounded-lg p-4">
         {cart.items.length > 0 ? (
           <CartItems cart={cart} />
         ) : (
-          <p className='text-lg'>No items in the cart.</p>
+          <p className="text-lg text-gray-300">Your cart is currently empty.</p>
         )}
       </div>
-      <div className='sticky bottom-0 px-4 my-2'>
-        <p className='mt-4 text-2xl font-semibold text-start'>
-          <strong>Total Price: </strong>£{totalPrice.toFixed(2)}
+      
+      {/* Total Price Section */}
+      <div className="flex justify-between items-center sticky bottom-0 py-4 rounded-lg px-6 mt-4">
+        <p className="text-2xl font-semibold text-white">
+          <strong>Total:</strong> £{totalPrice.toFixed(2)}
         </p>
       </div>
     </div>

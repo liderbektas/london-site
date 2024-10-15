@@ -6,7 +6,6 @@ import { Toaster } from 'react-hot-toast';
 import Cart from './pages/cart';
 import Complete from './pages/complete';
 import Success from './pages/success';
-import Checker from './pages/order/checker';
 
 const App = () => {
   const [isOrderCompleted, setIsOrderCompleted] = useState(false);
@@ -17,7 +16,7 @@ const App = () => {
       <Toaster />
       <div className='overflow-auto text-white bg-black'>
         <Routes>
-          <Route path='/' element={<Layout />} />
+          <Route path='/' element={<Layout checker={checker} />} />
           <Route
             path='/order/:categoryName'
             element={<Order setChecker={setChecker} checker={checker} />}
@@ -25,14 +24,11 @@ const App = () => {
           <Route
             path='/cart'
             element={
-              checker ? (
-                <Cart
-                  setIsOrderCompleted={setIsOrderCompleted}
-                  setChecker={setChecker}
-                />
-              ) : (
-                <Checker />
-              )
+              <Cart
+                setIsOrderCompleted={setIsOrderCompleted}
+                checker={checker}
+                setChecker={setChecker}
+              />
             }
           />
           <Route
