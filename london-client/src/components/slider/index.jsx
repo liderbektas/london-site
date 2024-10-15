@@ -9,7 +9,7 @@ import otherImage2 from '../../assets/img/FirePizza.jpg';
 import otherImage3 from '../../assets/img/doner.jpg';
 
 const Slider = () => {
-  const isMd = window.innerWidth >= 768; 
+  const isLg = window.innerWidth >= 768; 
 
   return (
     <div className='w-full h-full'>
@@ -27,31 +27,31 @@ const Slider = () => {
           <img
             src={homePage}
             alt='FireFly'
-            className='object-cover w-full bg-center h-[700px] md:object-cover'
+            className='object-cover w-full bg-center h-[700px] lg:object-cover'
           />
           <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent'></div>
         </div>
         <div className='relative h-full'>
           <img
-            src={isMd ? otherImage1 : burger}
+            src={isLg ? otherImage1 : burger}
             alt='FireBurger'
-            className='object-cover w-full bg-center h-[700px] md:object-cover'
+            className='object-cover w-full bg-center h-[700px] lg:object-cover'
           />
           <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent'></div>
         </div>
         <div className='relative h-full'>
           <img
-            src={isMd ? otherImage2 : pizza} 
+            src={isLg ? otherImage2 : pizza} 
             alt='FirePizza'
-            className='object-cover w-full bg-center h-[700px] md:object-cover'
+            className='object-cover w-full bg-center h-[700px] lg:object-cover'
           />
           <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent'></div>
         </div>
         <div className='relative h-full'>
           <img
-            src={isMd ? otherImage3 : doner}
+            src={isLg ? otherImage3 : doner}
             alt='FireDoner'
-            className='object-cover w-full bg-center h-[700px] md:object-cover'
+            className='object-cover w-full bg-center h-[700px] lg:object-cover'
           />
           <div className='absolute inset-0 bg-gradient-to-t from-black to-transparent'></div>
         </div>

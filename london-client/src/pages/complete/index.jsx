@@ -77,8 +77,8 @@ const Complete = () => {
       <h1 className='mb-6 text-5xl font-bold text-center text-[#f8f8f8]'>
         Order Summary
       </h1>
-      <div className='flex flex-col w-full max-w-5xl py-5 border rounded-lg shadow-lg md:flex-row'>
-        <div className='w-full p-6 border-b border-gray-600 md:w-1/2 md:border-b-0 md:border-r'>
+      <div className='flex flex-col w-full max-w-5xl py-5 border rounded-lg shadow-lg lg:flex-row'>
+        <div className='w-full p-6 border-b border-gray-600 lg:w-1/2 lg:border-b-0 lg:border-r'>
           {data && (
             <div className='mb-6'>
               <h2 className='mb-4 text-3xl font-bold text-center'>
@@ -88,7 +88,7 @@ const Complete = () => {
             </div>
           )}
         </div>
-        <div className='w-full p-6 border-b border-black md:w-1/2 md:border-b-0 md:border-l'>
+        <div className='w-full p-6 border-b border-black lg:w-1/2 lg:border-b-0 lg:border-l'>
           <CartSummary cart={cart} />
         </div>
       </div>

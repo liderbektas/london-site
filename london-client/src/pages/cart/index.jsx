@@ -14,7 +14,7 @@ const Cart = ({ setIsOrderCompleted, checker, setChecker }) => {
   return (
     <div className='flex flex-col w-screen bg-[#0a0a0b]'>
       <Header checker={checker} />
-      <div className='px-4 mx-auto mt-20 md:w-[1200px] md:px-0'>
+      <div className='px-4 mx-auto mt-20 lg:w-[1200px] lg:px-0'>
         {cart.items.length > 0 ? (
           checker ? (
             <List setIsOrderCompleted={setIsOrderCompleted} cart={cart} />
@@ -22,7 +22,7 @@ const Cart = ({ setIsOrderCompleted, checker, setChecker }) => {
             <CheckerModal setChecker={setChecker} />
           )
         ) : (
-          <div className='flex flex-col items-center justify-center mt-48 gap-y-16'>
+          <div className='flex flex-col h-[550px] pb-96 items-center justify-center mt-48 gap-y-16'>
             <div className='w-full max-w-md p-4 text-2xl text-center'>
               Your cart is currently empty.
             </div>

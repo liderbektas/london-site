@@ -10,11 +10,11 @@ const Home = () => {
         <Slider />
       </div>
 
-      <div className='absolute top-0 w-full pt-2 md:left-1/2 md:transform md:-translate-x-1/2 md:pt-4'>
+      <div className='absolute top-0 w-full pt-2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:pt-4'>
         <Header />
       </div>
 
-      <div className='w-full px-0 mt-8 md:mt-16 md:px-0 lg:px-0'>
+      <div className='w-full px-0 mt-8 lg:mt-16 lg:px-0'>
         <Content />
       </div>
     </div>

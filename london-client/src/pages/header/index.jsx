@@ -12,7 +12,7 @@ const Header = ({ checker }) => {
   const categories = data ? data.slice(0, 9) : [];
 
   return (
-    <header className='flex w-full items-center justify-between px-4 md:w-[1200px] mx-auto pt-2'>
+    <header className='flex w-full items-center justify-between px-4 lg:w-[1200px] mx-auto pt-2'>
       <div className='flex-shrink-0 hidden md:block'>
         <Logos />
       </div>

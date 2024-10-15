@@ -56,7 +56,7 @@ const CheckerModal = ({ setChecker }) => {
   }, [zip, canOrder, setChecker, time, isWithinOrderTime]);
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center text-black bg-black bg-opacity-50'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center text-black bg-black'>
       <div className='w-full max-w-[500px] mx-4 flex items-center flex-col bg-white rounded-md text-black p-6 md:p-8'>
         <h2 className='mb-6 text-2xl font-bold text-center md:text-3xl'>
           Check Postcode Availability

@@ -1,5 +1,5 @@
 import Logo from "../../../../../../assets/img/D.png";
-import { RiFacebookBoxFill } from "react-icons/ri";
+import { FaTiktok } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 
 const Footer = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="flex flex-col items-center justify-between gap-y-4 md:flex-row">
             <div className="flex text-white gap-x-6">
               <div className="flex items-center cursor-pointer gap-x-2">
-                <RiFacebookBoxFill size={24} />
+                <FaTiktok size={24} />
                 <span>Facebook</span>
               </div>
               <div className="flex items-center cursor-pointer gap-x-2">
@@ -25,7 +25,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-center text-gray-400">
-              © 2024 QODE INTERACTIVE, ALL RIGHTS RESERVED
+              © 2024 ALI BABA KEBAB, ALL RIGHTS RESERVED
             </p>
           </div>
         </div>

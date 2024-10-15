@@ -5,10 +5,10 @@ const UserSummary = ({ data }) => {
   }));
 
   return (
-    <div className='mt-6 grid grid-cols-2 gap-4 md:grid-cols-1 md:space-y-2'>
+    <div className='mt-6 grid grid-cols-2 gap-4 lg:grid-cols-1 lg:space-y-2'>
       {entries.map(({ label, value }, index) => (
-        <div key={index} className='flex flex-col md:flex-row md:items-center md:p-4'>
-          <p className='text-md md:text-lg md:mr-2'>
+        <div key={index} className='flex flex-col lg:flex-row lg:items-center lg:p-4'>
+          <p className='text-md lg:text-lg lg:mr-2'>
             <strong>{label}:</strong>
           </p>
           <p className='text-white'>{value}</p>

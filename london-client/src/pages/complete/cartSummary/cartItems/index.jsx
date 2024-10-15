@@ -5,13 +5,13 @@ const CartItems = ({ cart }) => {
     <div className="flex flex-col space-y-6">
       {cart.items.map((cartItem, index) => (
         <div key={index} className="p-6">
-          <div className="flex flex-col md:flex-row md:items-center md:gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
             <img
               src={cartItem.item.image_url}
               alt={cartItem.item.name}
-              className="w-full h-48 object-cover rounded-lg md:w-48"
+              className="w-full h-48 object-cover rounded-lg lg:w-48"
             />
-            <div className="flex-grow mt-4 md:mt-0 text-center md:text-left">
+            <div className="flex-grow mt-4 lg:mt-0 text-center lg:text-left">
               <p className="text-xl font-semibold text-white">
                 {cartItem.item?.name}
               </p>
@@ -27,7 +27,7 @@ const CartItems = ({ cart }) => {
             </div>
           </div>
 
-          <div className="mt-4 text-center md:text-left">
+          <div className="mt-4 text-center lg:text-left">
             <p className="text-white">
               <strong>Salad Toppings:</strong>{' '}
               {cartItem?.item.salad_toppings?.length > 0
