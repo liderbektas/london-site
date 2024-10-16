@@ -9,6 +9,8 @@ const useFetch = (url) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 1000)); 
         const response = await axios.get(url);
         setData(response.data);
       } catch (error) {

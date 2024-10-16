@@ -6,7 +6,7 @@ import useFetch from '../../hooks/custom';
 import Links from './navbar/links';
 
 const Header = ({ checker }) => {
-  const { data } = useFetch('http://127.0.0.1:8000/api/categories');
+  const { data  } = useFetch('http://127.0.0.1:8000/api/categories');
   const location = useLocation();
 
   const categories = data ? data.slice(0, 9) : [];

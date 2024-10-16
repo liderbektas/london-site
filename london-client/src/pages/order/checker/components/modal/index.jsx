@@ -8,7 +8,7 @@ const CheckerModal = ({ setChecker }) => {
   const [canOrder, setCanOrder] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
 
-  const startOrder = '12:00:00';
+  const startOrder = '10:00:00';
   const closeOrder = '23:30:00';
 
   useEffect(() => {
@@ -69,12 +69,12 @@ const CheckerModal = ({ setChecker }) => {
         />
         {showErrorModal && (
           <div className='mb-6 text-center'>
-            <span className='block text-sm md:text-lg font-bold'>
+            <span className='block text-sm font-bold md:text-lg'>
               Sorry, we are not accepting orders at this time.
             </span>
             <span className='block text-xs md:text-md'>
               Our service hours are between{' '}
-              <span className='font-bold text-xs md:text-md text-red-600'>12:00 AM and 11:30 PM</span>.
+              <span className='text-xs font-bold text-red-600 md:text-md'>12:00 AM and 11:30 PM</span>.
             </span>
           </div>
         )}

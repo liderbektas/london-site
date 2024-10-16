@@ -9,7 +9,7 @@ import useFetch from '../../../hooks/custom';
 
 const Modal = ({ item, closeModal }) => {
   const dispatch = useDispatch();
-  const { data } = useFetch(`http://127.0.0.1:8000/api/item/${item.id}`);
+  const { data , loading } = useFetch(`http://127.0.0.1:8000/api/item/${item.id}`);
   const [extras, setExtras] = useState(null);
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedSaladToppings, setSelectedSaladToppings] = useState([]);
