@@ -1,5 +1,5 @@
 const Empty = () => {
-  return <p className='text-center'>Kategori bulunamadı.</p>;
+  return <p className='text-center'>Category's Not Found</p>;
 };
 
 export default Empty;
