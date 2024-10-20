@@ -8,7 +8,7 @@ const CheckerModal = ({ setChecker }) => {
   const [canOrder, setCanOrder] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
 
-  const startOrder = '10:00:00';
+  const startOrder = '12:00:00';
   const closeOrder = '23:30:00';
 
   useEffect(() => {

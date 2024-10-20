@@ -11,7 +11,7 @@ const About = () => {
           <p className='text-sm text-center md:text-md lg:text-lg'>
             Located in the heart of London at 330 Kilburn Lane, Queen’s Park,
             this family-run restaurant has been a cherished part of the
-            community since 1993. Owned and operated by four brothers, the
+            community since 1993. Owned and operated by three brothers, the
             restaurant has built a reputation for serving delicious, authentic
             Turkish cuisine, including kebabs, doner, pizzas, burgers, and more.
             From its humble beginnings, this restaurant has grown into a beloved

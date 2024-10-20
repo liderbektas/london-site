@@ -34,7 +34,7 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',  # Ensure JSONRenderer is set
+        'rest_framework.renderers.JSONRenderer', 
     ),
 }
 
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.common.BrokenLinkEmailsMiddleware",  # Optional: Tracks broken links
 ]
 
 ROOT_URLCONF = "alibaba.urls"
@@ -125,3 +126,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  
 ]
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Ensure database sessions
+SESSION_COOKIE_AGE = 1209600
+SESSION_SAVE_EVERY_REQUEST = True

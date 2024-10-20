@@ -31,10 +31,10 @@ class Sizes(models.Model):
 
 
 class ItemSizes(models.Model):
-    item = models.OneToOneField(Items, on_delete=models.CASCADE, primary_key=True)
-    size = models.ForeignKey(Sizes, on_delete=models.CASCADE, blank=True, null=True)
+    id = models.AutoField(primary_key=True)
+    item = models.ForeignKey('Items', on_delete=models.CASCADE)
+    size = models.ForeignKey('Sizes', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=4)
 
     class Meta:
-        managed = False
-        db_table = 'item_sizes'
+        unique_together = ('item', 'size')

@@ -19,7 +19,7 @@ const Items = ({ cart }) => {
     1: 'Small',
     2: 'Medium',
     3: 'Large',
-    4: 'X-Large',
+    4: 'Extra Large',
     5: 'Standard',
   };
 
@@ -30,7 +30,7 @@ const Items = ({ cart }) => {
       {cart.items.map((product) => (
         <div
           key={product.cartItemId}
-          className='flex flex-col justify-between p-6 border-[0.5px] rounded-lg border-zinc-600'
+          className='flex flex-col justify-between p-6 border-[0.5px] rounded-lg border-zinc-600 bg-[#0a0a0b]'
         >
           <div className='flex justify-center'>
             <img
