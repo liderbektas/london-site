@@ -1,15 +1,11 @@
 import Header from '../header';
 import List from './list';
-import { useEffect } from 'react';
 import { useCart } from '../../redux/hooks/hooks';
 import { Link } from 'react-router-dom';
-import Checker from '../order/checker';
 import CheckerModal from '../order/checker/components/modal';
 
 const Cart = ({ setIsOrderCompleted, checker, setChecker }) => {
   const cart = useCart();
-
-  console.log(checker);
 
   return (
     <div className='flex flex-col w-screen bg-black'>

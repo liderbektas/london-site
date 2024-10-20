@@ -1,4 +1,4 @@
-const Info = ({ item, extras, selectedSize, handleAdd }) => {
+const Info = ({ extras, selectedSize, handleAdd }) => {
   const selectedSizePrice =
     extras.sizes.find((item) => item.size_id === selectedSize)?.price || 0;
 

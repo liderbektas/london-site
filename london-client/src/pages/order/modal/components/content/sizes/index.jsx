@@ -1,4 +1,4 @@
-const Sizes = ({ extras, setSelectedSize, selectedSize, item }) => {
+const Sizes = ({ extras, setSelectedSize, selectedSize }) => {
   const handleSizeChange = (sizeId) => {
     setSelectedSize(sizeId);
   };

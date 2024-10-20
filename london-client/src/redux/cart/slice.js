@@ -25,7 +25,6 @@ const cart = createSlice({
     },
     addToCart: (state, action) => {
       const newItem = { ...action.payload, cartItemId: uuidv4() };
-      console.log(newItem);
       state.items.push(newItem);
       localStorage.setItem('cartItem', JSON.stringify(state.items));
     },
